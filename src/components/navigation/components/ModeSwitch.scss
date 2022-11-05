@@ -1,0 +1,23 @@
+#toggle {
+  width: 50px;
+  display: flex;
+  padding: 5px;
+  background-color: #1a202c;
+  display: block;
+  border-radius: 1000px;
+  cursor: pointer;
+  box-shadow: 0px 5px 20px -10px rgba(0, 50, 0, 0.25);
+  transition: background-color 0.2s ease-in;
+
+  .toggle-inner {
+    width: 20px;
+    height: 15px;
+    background-color: white;
+    border-radius: 1000px;
+    transition: margin-left 0.2s ease-in, background-color 0.2s ease-in;
+
+    &.toggle-active {
+      margin-left: 20px;
+    }
+  }
+}
