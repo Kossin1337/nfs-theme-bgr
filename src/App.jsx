@@ -21,13 +21,13 @@ const App = () => {
   const scrollOffer = () =>
     offerRef.current?.scrollIntoView({ behavior: "smooth" });
   const scrollAbout = () =>
-    aboutRef?.current.scrollIntoView({ behavior: "smooth" });
+    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <div className="application">
       <Navigation
-        scrollHome={scrollHome}
-        scrollOffer={scrollOffer}
+        scrollHome={() => scrollHome}
+        scrollOffer={() => scrollOffer}
         scrollAbout={scrollAbout}
       />
       <Routes>
@@ -35,9 +35,9 @@ const App = () => {
           path="/"
           element={
             <div className="content">
-              <Main id="#home" ref={homeRef} />
-              <Offer id="#offer" ref={offerRef} />
-              <About id="#about" ref={aboutRef} />
+              <Main ref={homeRef} />
+              <Offer ref={offerRef} />
+              <About  ref={aboutRef} />
             </div>
           }
         />
@@ -50,7 +50,6 @@ const App = () => {
           }
         />
       </Routes>
-
       <Footer />
     </div>
   );

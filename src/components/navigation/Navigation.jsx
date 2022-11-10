@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import ModeSwitch from "./components/ModeSwitch";
 
 import "./Navigation.scss";
 
@@ -14,20 +13,19 @@ const Navigation = ({ scrollHome, scrollOffer, scrollAbout }) => {
       </div>
       <ul className="menu">
         <li className="menu-item">
-          <a href="/#home" onClick={scrollHome}>
+          <a href="#home" onClick={scrollHome}>
             Home
           </a>
         </li>
         <li className="menu-item active" onClick={() => scrollOffer}>
-          <a href="/#offer">Offer</a>
+          <a href="#offer">Offer</a>
         </li>
         <li className="menu-item" onClick={() => scrollAbout}>
-          <a href="/#about">About Us</a>
+          <a href="#about">About Us</a>
         </li>
-        <li className="menu-item">
+        <li className="menu-item special">
           <NavLink to="/contact">Contact</NavLink>
         </li>
-        <ModeSwitch />
       </ul>
     </div>
   );

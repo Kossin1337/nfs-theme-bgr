@@ -4,14 +4,21 @@
   --delay: 7.5;
 
   --color-black: #000;
-  // --color-white: rgb(0, 238, 255);
-  --color-white: rgba(0, 255, 0, 0.75);
-  --color-orange: #d49c3d;
-  --color-red: #d14b3d;
-  --color-violet: #cf52eb;
-  --color-blue: #44a3f7;
-  --color-green: #5acb3c;
-  --color-yellow: #debf40;
+  --color-white: #ffa200;
+  --color-orange: #e9a023;
+  --color-red: #f79f09;
+  --color-violet: #10c2ee;
+  --color-blue: rgba(4, 234, 250, 0.75);
+  --color-green: rgba(26, 158, 235, 0.87);
+  --color-yellow: rgba(62, 122, 253, 0.9);
+
+  // --color-white: #ffa600;
+  // --color-orange: #d49c3d;
+  // --color-red: #d14b3d;
+  // --color-violet: #cf52eb;
+  // --color-blue: #44a3f7;
+  // --color-green: #5acb3c;
+  // --color-yellow: #debf40;
 }
 
 .wrapper {
@@ -23,7 +30,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 0;
+  padding: 2rem 0;
 }
 
 .c-rainbow {

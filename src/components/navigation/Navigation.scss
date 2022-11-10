@@ -2,7 +2,6 @@
   position: fixed;
   top: 0%;
   z-index: 999;
-
   width: 100%;
   box-sizing: border-box;
   height: 60px;
@@ -11,19 +10,16 @@
   justify-content: space-between;
   align-items: center;
 
-  background-color: rgba(25, 25, 25, 0.9);
+  background-color: rgba(5, 0, 5, 1);
 
   .logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: transparent;
-    // background-color: rgba(0, 0, 0, 0.4);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-image: linear-gradient(to right, #0893e4, #10c2ee);
     // color: #1698e4;
-    // color: #169;
     // color: #ffa600; // orange
     // animation: glow 5s ease-in-out infinite;
     transition: all 0.1s ease;
@@ -53,16 +49,18 @@
       cursor: pointer;
       font-size: 1.25rem;
 
+      &:hover {
+        a {
+          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
+          background-image: linear-gradient(to right, #0893e4, #10c2ee);
+        }
+      }
+
       a {
         text-decoration: none;
         padding: 0 0.35rem;
         color: #fefefe;
-
-        &:hover {
-          background-image: linear-gradient(to right, #0893e4, #10c2ee);
-          -webkit-text-fill-color: transparent;
-          -webkit-background-clip: text;
-        }
       }
 
       .active {

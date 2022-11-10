@@ -8,7 +8,7 @@ import "./Offer.scss";
 
 const Offer = () => {
   return (
-    <div className="offer-wrapper">
+    <div className="offer-wrapper" id="offer">
       <Rainbow
         textOne={"WE GOT WHAT YOU WANT"}
         textTwo={"WE GOT WHAT YOU NEED"}

@@ -8,7 +8,10 @@
   align-items: center;
 
   color: #fefefe;
-  background-color: rgba(20, 20, 20, 1);
+
+  // border-top: 2px solid #fefefe;
+  border-top: 2px solid rgba(20, 7, 20, 1);
+  background-color: rgba(5, 0, 5, 1);
 
   .special-text {
     font-size: 5rem;

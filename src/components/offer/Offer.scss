@@ -1,13 +1,12 @@
 .offer-wrapper {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0;
-
   color: #fefefe;
   background-color: rgba(5, 0, 5, 1);
 
@@ -27,12 +26,12 @@
       text-align: center;
       font-size: 7.5rem;
       opacity: 0.25;
-      color: #00ff37;
+      color: #ffa600;
     }
 
     .sub-text {
       text-transform: uppercase;
-      color: #00ff37;
+      color: #ffa600;
     }
 
     .offer-text {

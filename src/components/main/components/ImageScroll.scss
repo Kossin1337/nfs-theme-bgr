@@ -10,29 +10,56 @@
 
   .arrow {
     cursor: pointer;
-    background-color: rgba(20, 20, 20, 0.75);
-    padding: 1rem;
-    border-radius: 100%;
+    background-color: rgba(20, 20, 20, 0.15);
+    border-radius: 50px;
     color: #fefefe;
+    transition: all 0.2s ease;
+
+    &:nth-child(1) {
+      padding: 1rem 1rem 1rem 1.25rem;
+
+      &:hover {
+        svg {
+          transform: translateX(-1rem);
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      padding: 1rem 1.25rem 1rem 1rem;
+
+      &:hover {
+        svg {
+          transform: translateX(1rem);
+        }
+      }
+    }
 
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.5s ease;
 
     svg {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       color: #fefefe;
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: all 0.1s ease;
     }
 
     &:hover {
       background-color: rgba(5, 5, 5, 0.8);
+      background-image: linear-gradient(
+        to right,
+        rgba(1, 131, 206, 0.85),
+        rgba(7, 166, 206, 0.85)
+      );
 
       svg {
-        color: lime;
+        color: #fefefe;
       }
     }
   }
