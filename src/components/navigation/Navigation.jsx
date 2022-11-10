@@ -1,26 +1,31 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import ModeSwitch from "./components/ModeSwitch";
 
 import "./Navigation.scss";
 
-const Navigation = () => {
+const Navigation = ({ scrollHome, scrollOffer, scrollAbout }) => {
   return (
     <div className="navigation">
       <div className="logo">
-        <span>BGR CARS</span>
+        <NavLink to="/">
+          <span>BGR GARAGE</span>
+        </NavLink>
       </div>
       <ul className="menu">
         <li className="menu-item">
-          <a href="#home">Home</a>
+          <a href="/#home" onClick={scrollHome}>
+            Home
+          </a>
         </li>
-        <li className="menu-item active">
-          <a href="#offer">Offer</a>
+        <li className="menu-item active" onClick={() => scrollOffer}>
+          <a href="/#offer">Offer</a>
+        </li>
+        <li className="menu-item" onClick={() => scrollAbout}>
+          <a href="/#about">About Us</a>
         </li>
         <li className="menu-item">
-          <a href="#about">About Us</a>
-        </li>
-        <li className="menu-item">
-          <a href="#contact">Contact</a>
+          <NavLink to="/contact">Contact</NavLink>
         </li>
         <ModeSwitch />
       </ul>

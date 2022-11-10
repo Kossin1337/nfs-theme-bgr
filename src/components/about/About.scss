@@ -1,5 +1,26 @@
 .about {
+  min-height: 100vh;
+  box-sizing: border-box;
   display: flex;
+  padding: 2rem 10%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  color: #fefefe;
+  background-color: rgba(20, 20, 20, 1);
+
+  .special-text {
+    font-size: 5rem;
+    background-image: linear-gradient(to right, #0893e4, #10c2ee);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    // -webkit-background-clip: text;
+    padding: 0 2rem;
+  }
+
+  .secondary-text {
+    font-size: 3rem;
+    text-align: center;
+  }
 }

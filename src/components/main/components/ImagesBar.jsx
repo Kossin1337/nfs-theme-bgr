@@ -1,9 +1,21 @@
-import React from 'react'
+import React from "react";
+import "./ImagesBar.scss";
 
-const ImagesBar = () => {
+const ImagesBar = ({ images, activeImageID, setImageID, totalImages }) => {
   return (
-    <div>ImagesBar</div>
-  )
-}
+    <div className="images-bar-wrapper">
+      <div className="bar">
+        {images.map((image, index) => {
+          <div
+            className={`image-box ${
+              index === activeImageID ? "active" : "disabled"
+            }`}
+            key={index}
+          ></div>;
+        })}
+      </div>
+    </div>
+  );
+};
 
-export default ImagesBar
+export default ImagesBar;

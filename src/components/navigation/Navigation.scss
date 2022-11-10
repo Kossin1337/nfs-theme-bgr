@@ -17,10 +17,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    // background-color: transparent;
+    // background-color: rgba(0, 0, 0, 0.4);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right, #0893e4, #10c2ee);
+    // color: #1698e4;
+    // color: #169;
+    // color: #ffa600; // orange
+    // animation: glow 5s ease-in-out infinite;
+    transition: all 0.1s ease;
+
+    &:hover {
+      background-image: linear-gradient(to right, #0183ce, #07a6ce);
+    }
+
+    a {
+      text-decoration: none;
+    }
 
     span {
       font-weight: 500;
       font-size: 2rem;
+      padding-right: 0.5rem;
     }
   }
 
@@ -36,16 +55,44 @@
 
       a {
         text-decoration: none;
+        padding: 0 0.35rem;
         color: #fefefe;
 
         &:hover {
-          color: lime;
+          background-image: linear-gradient(to right, #0893e4, #10c2ee);
+          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
         }
+      }
+
+      .active {
+        color: #1698e4;
       }
     }
 
     .active {
-      color: limegreen;
+      color: #1698e4;
     }
+
+    .toggle {
+      background-color: red;
+
+      .toggle-inner {
+        color: red;
+      }
+
+      .toggle-active {
+        background-color: pink;
+      }
+    }
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 15px #1698e4;
+  }
+  to {
+    text-shadow: 0 0 20px #079df5, 0 0 8px #ff9900;
   }
 }

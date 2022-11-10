@@ -1,31 +1,46 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+
 /* Color variables */
-$defult-text-light: #050505;
+$default-text-light: #050505;
 $special-text-light: limegreen;
 $default-bg-light: #fefefe;
 
-$defult-text-dark: #fefefe;
+//colors i need
+// text
+// light-text
+// background
+// transparent-bg
+// transparent-bg
+// special
+// second-special
+
+
+// orange to check out
+// blue to check out
+// dark-light || orange-blue
+
+$default-text-dark: #fefefe;
 $special-text-dark: limegreen;
 $default-bg-dark: #050505;
 
 /* MIXINS DARK MODE */
 @mixin dark-mode {
-  $background-color: $default-bg-dark;
-  $default-text: $defult-text-dark;
-  $special-text: $special-text-dark;
+  :root {
+    $background-color: $default-bg-dark;
+    $default-text: $default-text-dark;
+    $special-text: $special-text-dark;
+  }
 }
 
 @mixin light-mode {
-  $background-color: $default-bg-light;
-  $default-text: $defult-text-light;
-  $special-text: $special-text-ligh;
-}
-
-/* NEED FOR SPEED FONT */
-@font-face {
-  font-family: "need_for_speed";
-  src: url("./assets//fonts//NFS-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
+  :root {
+    $background-color: $default-bg-light;
+    $default-text: $default-text-light;
+    $special-text: $special-text-light;
+  }
 }
 
 * {
@@ -39,14 +54,14 @@ body {
   padding: 0;
   box-sizing: border-box;
   width: 100vw;
-  min-height: 200vh;
   overflow: hidden;
   overflow-y: scroll;
 
-  background-color: $background-color;
-  color: $default-text;
+  // background-color: $background-color;
+  // color: $default-text;
 }
 
+/* switch modes */
 .dark-mode {
   @include dark-mode;
 }
@@ -59,9 +74,15 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  color: $default-text;
+  // color: $default-text;
   font-family: "need_for_speed";
-  background-color: $background-color;
+  // background-color: $background-color;
+
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 // /* DEEPEST POSSIBLE SUPPORT */
@@ -69,10 +90,19 @@ body {
 //   font-family: "NFS";
 //   src: url("/public/fonts/NFS-webfont.eot"); /* IE9 Compat Modes */
 //   src: url("/public/fonts/NFS-webfont.woff2") format("woff2"),
-//     /* Super Modern Browsers */ url("/public/fonts/NFS-webfont.woff")
+//      url("/public/fonts/NFS-webfont.woff")
 //       format("woff"),
 //     /* Pretty Modern Browsers */ url("/public/fonts/NFS-webfont.ttf")
 //       format("truetype"),
 //     /* Safari, Android, iOS */ url("/public/fonts/NFS-webfont.svg")
 //       format("svg"); /* Legacy iOS */
 // }
+
+/* NEED FOR SPEED FONT */
+@font-face {
+  font-family: "need_for_speed";
+  /* Super Modern Browsers */
+  src: url("./assets//fonts//NFS-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

@@ -12,7 +12,7 @@ const ImageScroll = ({ setImageID, totalImages }) => {
   };
 
   const prevImage = () => {
-    setImageID((id) => (id === 0 ? totalImages : id + 1));
+    setImageID((id) => (id === 0 ? totalImages : id - 1));
   };
 
   return (

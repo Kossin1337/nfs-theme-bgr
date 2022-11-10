@@ -1,5 +1,27 @@
 .contact {
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1.5rem;
+  min-height: calc(100vh - 80px);
+  color: #fefefe;
+  background-color: rgba(5, 0, 5, 1);
+
+  .bg-text {
+    position: absolute;
+    top: 7.5%;
+    opacity: 0.2;
+    font-size: 6rem;
+    color: #00ccff;
+  }
+
+  .title {
+    font-size: 3rem;
+    background-image: linear-gradient(to right, #0893e4, #10c2ee);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    padding: 0 2rem;
+  }
 }

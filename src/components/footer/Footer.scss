@@ -1,5 +1,78 @@
 .footer {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  padding: 1rem 10%;
+  justify-content: space-between;
   align-items: center;
+  margin-top: auto;
+
+  color: #fefefe;
+  background-color: rgba(5, 5, 5, 0.95);
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .icons {
+    display: flex;
+    gap: 0.5rem;
+
+    .icon {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      color: #fefefe;
+      background-color: rgba(30, 30, 30, 0.87);
+      padding: 1rem;
+      border-radius: 20px;
+
+      svg {
+        width: 32px;
+        height: 32px;
+        border: 15px;
+        color: #fefefe;
+      }
+
+      &:hover {
+        background-color: rgba(20, 20, 20, 0.75);
+        transition: all 0.15s ease;
+        transform: scale(1.1);
+      }
+    }
+
+    .instagram {
+      svg {
+        color: rgba(228, 64, 95, 0.75);
+      }
+      &:hover {
+        svg {
+          color: rgba(228, 64, 95, 1);
+        }
+      }
+    }
+
+    .facebook {
+      svg {
+        color: rgba(24, 119, 242, 0.75);
+      }
+      &:hover {
+        svg {
+          color: rgb(24, 119, 242, 1);
+        }
+      }
+    }
+    
+    .facebook {
+      svg {
+        color: rgba(24, 119, 242, 0.75);
+      }
+      &:hover {
+        svg {
+          color: rgb(24, 119, 242, 1);
+        }
+      }
+    }
+  }
 }
