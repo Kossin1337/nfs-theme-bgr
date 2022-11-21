@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useState, useEffect, useRef, forwardRef } from "react";
+import { useLocation, Routes, Route } from "react-router-dom";
 
 /* components */
 import Navigation from "./components/navigation/Navigation";
@@ -11,33 +11,52 @@ import Footer from "./components/footer/Footer";
 
 import "./App.scss";
 
-const App = () => {
-  const homeRef = useRef();
-  const offerRef = useRef();
-  const aboutRef = useRef();
+const HomeSection = forwardRef((props, ref) => {
+  return (
+    <section ref={ref}>
+      <Main />
+    </section>
+  );
+});
 
-  const scrollHome = () =>
-    homeRef.current?.scrollIntoView({ behavior: "smooth" });
-  const scrollOffer = () =>
-    offerRef.current?.scrollIntoView({ behavior: "smooth" });
-  const scrollAbout = () =>
-    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+const OfferSection = forwardRef((props, ref) => {
+  return (
+    <section ref={ref}>
+      <Offer />
+    </section>
+  );
+});
+
+const AboutSection = forwardRef((props, ref) => {
+  return (
+    <section ref={ref}>
+      <About />
+    </section>
+  );
+});
+
+const App = () => {
+  const [activeURL, setActiveURL] = useState("home");
+  const homeRef = useRef(null);
+  const offerRef = useRef(null);
+  const aboutRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    
+  }, [location]);
 
   return (
     <div className="application">
-      <Navigation
-        scrollHome={() => scrollHome}
-        scrollOffer={() => scrollOffer}
-        scrollAbout={scrollAbout}
-      />
+      <Navigation refs={{ homeRef, offerRef, aboutRef }} />
       <Routes>
         <Route
           path="/"
           element={
             <div className="content">
-              <Main ref={homeRef} />
-              <Offer ref={offerRef} />
-              <About  ref={aboutRef} />
+              <HomeSection ref={homeRef} />
+              <OfferSection ref={offerRef} />
+              <AboutSection ref={aboutRef} />
             </div>
           }
         />
@@ -45,7 +64,7 @@ const App = () => {
           path="/contact"
           element={
             <div className="content">
-              <Contact id="#contact" />
+              <Contact />
             </div>
           }
         />

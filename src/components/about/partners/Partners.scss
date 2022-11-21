@@ -4,9 +4,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   .partner {
     .special {
+      margin-top: 1rem;
       font-size: 3rem;
     }
   }
@@ -16,7 +18,7 @@
     margin: 0;
     padding: 0;
     -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+    background-clip: text;
     background-image: linear-gradient(to right, #0893e4, #10c2ee);
     padding: 0 1rem;
   }

@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
 
+/* REACT SPRING ANIMATIONS */
+// import { useSpring, animated } from "@react-spring/web";
+// import { Parallax, ParallaxLayer } from "@react-spring/web";
+import { useSpringCarousel } from "react-spring-carousel";
+
 /* hooks */
 import { useWindowSize } from "../../hooks/useWindowSize";
 
@@ -8,8 +13,8 @@ import mustBe1 from "./mustBeImages/mustBe1.jpeg";
 import mustBe2 from "./mustBeImages/mustBe2.jpg";
 import mustBe3 from "./mustBeImages/mustBe3.jpeg";
 import mustBe4 from "./mustBeImages/mustBe4.jpeg";
-import mustBe5 from "./mustBeImages/mustBe5.jpeg";
-import mustBe6 from "./mustBeImages/mustBe6.jpg";
+// import mustBe5 from "./mustBeImages/mustBe5.jpeg";
+// import mustBe6 from "./mustBeImages/mustBe6.jpg";
 
 /* phone images */
 import phoneOne from "./images/phone/phone1.jpg";
@@ -62,14 +67,14 @@ const desktopImages = [
     ],
     author: "~Anonymous",
   },
-  {
-    id: 4,
-    image: mustBe5,
-    message: [
-      "IF YOU GIVE THIS MAN A RIDE SEAT, FAMILY WILL DIE. KILLER ON THE ROAD",
-    ],
-  },
-  { id: 5, image: mustBe6, message: ["THE CARS WE DRIVE SAY A LOT ABOUT US"] },
+  // {
+  //   id: 4,
+  //   image: mustBe5,
+  //   message: [
+  //     "IF YOU GIVE THIS MAN A RIDE SEAT, FAMILY WILL DIE. KILLER ON THE ROAD",
+  //   ],
+  // },
+  // { id: 5, image: mustBe6, message: ["THE CARS WE DRIVE SAY A LOT ABOUT US"] },
 ];
 // 1060/960x800 - tablet resolution
 const tabletImages = [
@@ -93,10 +98,10 @@ const tabletImages = [
     id: 2,
     image: phoneThree,
     message: [
-      "IF EVERYTHING SEEMS UNDER CONTROL",
-      `YOU'RE NOT GOING FAST ENOUGH`,
+      "I ain't saying she's a gold digger",
+      `but she ain't messing with no broke...`,
     ],
-    author: "~Anonymous",
+    author: "~Kanye",
   },
   {
     id: 3,
@@ -130,8 +135,8 @@ const phoneImages = [
     id: 2,
     image: phoneThree,
     message: [
-      "IF EVERYTHING SEEMS UNDER CONTROL",
-      `YOU'RE NOT GOING FAST ENOUGH`,
+      "I ain't saying she's a gold digger",
+      `but she ain't messing with no broke...`,
     ],
     author: "~Anonymous",
   },
@@ -146,40 +151,67 @@ const phoneImages = [
   },
 ];
 
+/* react spring render arrays */
+const RSdesktopImages = [
+  {
+    id: "item-1",
+    renderItem: <img src={mustBe1} alt="spring-no-roof" />,
+  },
+  {
+    id: "item-2",
+    renderItem: <img src={mustBe2} alt="spring-no-roof" />,
+  },
+  {
+    id: "item-3",
+    renderItem: <img src={mustBe3} alt="spring-no-roof" />,
+  },
+  {
+    id: "item-4",
+    renderItem: <img src={mustBe4} alt="spring-no-roof" />,
+  },
+];
+
 const Main = () => {
   const [imageID, setImageID] = useState(0);
   const { width } = useWindowSize();
   const [imagesArray, setImagesArray] = useState(desktopImages);
 
+  /* react spring */
+  const { carouselFragment, slideToPrevItem, slideToNextItem } =
+    useSpringCarousel({
+      withLoop: true,
+      items: RSdesktopImages,
+    });
+
   /* assess screen to display images */
   useEffect(() => {
-    setImagesArray(() =>
+    setImagesArray(
       width > 1920 ? desktopImages : width > 960 ? tabletImages : phoneImages
     );
   }, [width]);
 
   useEffect(() => {
     const newInterval = setInterval(() => {
-      nextImage();
-    }, 30000);
+      slideToNextItem();
+    }, 5000);
 
     return () => clearInterval(newInterval);
   }, []);
 
-  const prevImage = () => {
-    setImageID((id) => (id === 0 ? imagesArray.length - 1 : id - 1));
-  };
+  // const prevImage = () => {
+  //   setImageID((id) => (id === 0 ? imagesArray.length - 1 : id - 1));
+  // };
 
-  const nextImage = () => {
-    setImageID((id) => (id === imagesArray.length - 1 ? 0 : id + 1));
-  };
+  // const nextImage = () => {
+  //   setImageID((id) => (id === imagesArray.length - 1 ? 0 : id + 1));
+  // };
 
   return (
     <div className="main" id="home">
       <div className="title-container">
         {imagesArray[imageID].message.map((msg, index) => {
           return (
-            <h1 className="title" key={index}>
+            <h1 className="title message" key={index}>
               {msg}
             </h1>
           );
@@ -187,11 +219,10 @@ const Main = () => {
         {imagesArray[imageID].author && (
           <h2 className="title author">{imagesArray[imageID].author}</h2>
         )}
-        {/* <h1 className="title">{imagesArray[imageID].id}</h1> */}
-        {/* <h1 className="title">{imagesArray[imageID].id}</h1> */}
       </div>
-      <ImageScroll prevImage={prevImage} nextImage={nextImage} />
-      <img src={imagesArray[imageID].image} alt="spring-no-roof" />
+      <div className="image-wrapper">{carouselFragment}</div>
+      <ImageScroll prevImage={slideToPrevItem} nextImage={slideToNextItem} />
+      {/* <img src={imagesArray[imageID].image} alt="spring-no-roof" /> */}
       <ImagesBar
         images={imagesArray}
         setImageID={setImageID}

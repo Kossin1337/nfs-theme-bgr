@@ -17,7 +17,6 @@ $default-bg-light: #fefefe;
 // special
 // second-special
 
-
 // orange to check out
 // blue to check out
 // dark-light || orange-blue
@@ -56,6 +55,8 @@ body {
   width: 100vw;
   overflow: hidden;
   overflow-y: scroll;
+  background-color: lightblue;
+  // background-color: rgba(5, 5, 5, 0.9);
 
   // background-color: $background-color;
   // color: $default-text;

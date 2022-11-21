@@ -11,9 +11,12 @@
   background-color: rgba(5, 5, 15, 0.25);
   background-image: linear-gradient(
     to right,
-    rgba(8, 147, 228, 0.1),
-    rgba(16, 194, 238, 0.125)
+    rgba(17, 150, 255, 0.125),
+    rgba(8, 185, 255, 0.1)
   );
+
+  // rgba(8, 147, 228, 0.1),
+  // rgba(16, 194, 238, 0.125)
 
   .bar {
     display: flex;
@@ -24,22 +27,21 @@
       width: 30px;
       height: 30px;
       border-radius: 25px;
-      background-color: rgba(16, 194, 238, 0.25);
+      background-color: rgba(0, 119, 255, 0.25);
       transition: all 0.15s ease;
 
       &:hover {
-        background-color: rgba(16, 194, 238, 0.6);
+        background-color: rgba(20, 100, 220, 0.6);
       }
     }
 
     .active {
       width: 60px;
-
-      background-color: rgba(16, 194, 238, 0.7);
+      background-color: rgba(20, 100, 200, 0.75);
       transition: all 0.15s ease;
 
       &:hover {
-        background-color: rgba(16, 194, 238, 0.9);
+        background-color: rgba(20, 100, 200, 0.9);
       }
     }
   }

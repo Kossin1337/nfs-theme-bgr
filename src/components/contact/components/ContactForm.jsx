@@ -18,6 +18,14 @@ const ContactForm = () => {
     }, 100);
   };
 
+  const onChange = ({ target }) => {
+    const { name, value } = target.name;
+
+    setInfo((prevInfo) => {
+      prevInfo[name] = value;
+    });
+  };
+
   if (submitted) {
     return (
       <>
@@ -28,7 +36,6 @@ const ContactForm = () => {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      
       <label>Your Name</label>
       <input type="text" placeholder="Your name" name="name" required />
       <label>Email</label>

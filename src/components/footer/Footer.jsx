@@ -12,13 +12,13 @@ const Footer = () => {
     <div className="footer">
       <span className="title">BGR GARAGE</span>
       <div className="icons">
-        <div className="icon instagram">
+        <div className="social-icon instagram">
           <Instagram />
         </div>
-        <div className="icon facebook">
+        <div className="social-icon facebook">
           <Facebook />
         </div>
-        <div className="icon tiktok">
+        <div className="social-icon tiktok">
           <TikTok />
         </div>
       </div>
