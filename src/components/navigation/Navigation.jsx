@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 /* react spring */
-import { useTransition, animated } from "@react-spring/web";
+import { useSpring, animated } from "@react-spring/web";
 
 /* components */
 import MobileBurger from "./components/MobileBurger";
@@ -15,10 +15,10 @@ const Navigation = ({ refs }) => {
   const [isVisible, setIsVisible] = useState(false);
   const location = useLocation();
 
-  const transitions = useTransition(isVisible, {
-    from: { x: -1000, y: 0, opacity: 0 },
-    enter: { x: -500, y: 0, opacity: 1 },
-    leave: { x: 0, y: 0, opacity: 1 },
+  const springProps = useSpring({
+    config: { duration: 500 },
+    from: { opacity: 0, scale: 0.5 },
+    to: { opacity: 1, scale: 1 },
   });
 
   function toggleMenu() {
@@ -46,13 +46,14 @@ const Navigation = ({ refs }) => {
   }, [location, refs]);
 
   const scrollSmoothHandler = (ref) => {
-    if (ref?.current) {
-      ref?.current.scrollIntoView({ behavior: "smooth" });
-    }
+    window.scrollTo({
+      top: ref?.current.offsetTop - 60,
+      behavior: "smooth",
+    });
   };
 
   return (
-    <animated.div className="navigation">
+    <animated.div style={springProps} className="navigation">
       <div className="mobile-wrapper">
         <div className="logo">
           <Link to="/">

@@ -1,5 +1,8 @@
 import React from "react";
 
+/* react spring */
+import { useSpring, animated } from "@react-spring/web";
+
 /* icons */
 import Instagram from "../../assets/icons/Instagram";
 import Facebook from "../../assets/icons/Facebook";
@@ -8,8 +11,14 @@ import TikTok from "../../assets/icons/TikTok";
 import "./Footer.scss";
 
 const Footer = () => {
+  const springProps = useSpring({
+    config: { duration: 500 },
+    from: { opacity: 0, scale: 0.5 },
+    to: { opacity: 1, scale: 1 },
+  });
+
   return (
-    <div className="footer">
+    <animated.div style={springProps} className="footer">
       <span className="title">BGR GARAGE</span>
       <div className="icons">
         <div className="social-icon instagram">
@@ -22,7 +31,7 @@ const Footer = () => {
           <TikTok />
         </div>
       </div>
-    </div>
+    </animated.div>
   );
 };
 

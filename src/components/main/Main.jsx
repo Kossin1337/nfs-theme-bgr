@@ -155,19 +155,57 @@ const phoneImages = [
 const RSdesktopImages = [
   {
     id: "item-1",
-    renderItem: <img src={mustBe1} alt="spring-no-roof" />,
+    renderItem: <img src={mustBe1} alt="blue-lambo" />,
   },
   {
     id: "item-2",
-    renderItem: <img src={mustBe2} alt="spring-no-roof" />,
+    renderItem: <img src={mustBe2} alt="white-cars-garage" />,
   },
   {
     id: "item-3",
-    renderItem: <img src={mustBe3} alt="spring-no-roof" />,
+    renderItem: <img src={mustBe3} alt="lambo-tire" />,
   },
   {
     id: "item-4",
-    renderItem: <img src={mustBe4} alt="spring-no-roof" />,
+    renderItem: <img src={mustBe4} alt="classic-cars-parking" />,
+  },
+];
+
+const RStabletImages = [
+  {
+    id: "item-1",
+    renderItem: <img src={phoneOne} alt="blue-lambo" />,
+  },
+  {
+    id: "item-2",
+    renderItem: <img src={phoneTwo} alt="white-cars-garage" />,
+  },
+  {
+    id: "item-3",
+    renderItem: <img src={phoneThree} alt="lambo-tire" />,
+  },
+  {
+    id: "item-4",
+    renderItem: <img src={phoneFour} alt="classic-cars-parking" />,
+  },
+];
+
+const RSphoneImages = [
+  {
+    id: "item-1",
+    renderItem: <img src={phoneOne} alt="blue-lambo" />,
+  },
+  {
+    id: "item-2",
+    renderItem: <img src={phoneTwo} alt="white-cars-garage" />,
+  },
+  {
+    id: "item-3",
+    renderItem: <img src={phoneThree} alt="lambo-tire" />,
+  },
+  {
+    id: "item-4",
+    renderItem: <img src={phoneFour} alt="classic-cars-parking" />,
   },
 ];
 
