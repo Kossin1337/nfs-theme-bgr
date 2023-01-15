@@ -1,37 +1,47 @@
-import React from "react";
+import React, { useRef } from "react";
 
-/* react spring */
-import { useSpring, animated } from "@react-spring/web";
+/* react motion */
+import { AnimatePresence, motion } from "framer-motion";
+import { footerVariants } from "../../utils/motion";
 
 /* icons */
 import Instagram from "../../assets/icons/Instagram";
 import Facebook from "../../assets/icons/Facebook";
 import TikTok from "../../assets/icons/TikTok";
 
+import { useInView } from "framer-motion";
+
 import "./Footer.scss";
 
 const Footer = () => {
-  const springProps = useSpring({
-    config: { duration: 500 },
-    from: { opacity: 0, scale: 0.5 },
-    to: { opacity: 1, scale: 1 },
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    marginTop: "80px",
   });
 
   return (
-    <animated.div style={springProps} className="footer">
-      <span className="title">BGR GARAGE</span>
-      <div className="icons">
-        <div className="social-icon instagram">
-          <Instagram />
+    <AnimatePresence>
+      <motion.div
+        className="footer"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={footerVariants}
+        ref={ref}
+      >
+        <span className="title">BGR GARAGE</span>
+        <div className="icons">
+          <div className="social-icon instagram">
+            <Instagram />
+          </div>
+          <div className="social-icon facebook">
+            <Facebook />
+          </div>
+          <div className="social-icon tiktok">
+            <TikTok />
+          </div>
         </div>
-        <div className="social-icon facebook">
-          <Facebook />
-        </div>
-        <div className="social-icon tiktok">
-          <TikTok />
-        </div>
-      </div>
-    </animated.div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Rainbow from "./components/Rainbow";
+
+import { motion } from "framer-motion";
+import { fadeIn } from "../../utils/motion";
+
+import { useInView } from "framer-motion";
 
 import "./Offer.scss";
 
@@ -7,8 +12,17 @@ import "./Offer.scss";
 // WE GOT WHAT YOU NEED
 
 const Offer = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    margin: "0px 80px 0px 0px",
+  });
+
+  useEffect(() => {
+    console.log("Offer is in view: ", isInView);
+  }, [isInView]);
+
   return (
-    <div className="offer-wrapper" id="offer">
+    <div className="offer-wrapper" id="offer" ref={ref}>
       <Rainbow
         textOne={"WE GOT WHAT YOU WANT"}
         textTwo={"WE GOT WHAT YOU NEED"}

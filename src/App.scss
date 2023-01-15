@@ -1,7 +1,6 @@
 /* fonts */
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
 
 /* Color variables */
 $default-text-light: #050505;
@@ -55,11 +54,7 @@ body {
   width: 100vw;
   overflow: hidden;
   overflow-y: scroll;
-  background-color: lightblue;
-  // background-color: rgba(5, 5, 5, 0.9);
-
-  // background-color: $background-color;
-  // color: $default-text;
+  background-color: rgba(5, 0, 5, 1);
 }
 
 /* switch modes */
@@ -75,9 +70,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  // color: $default-text;
   font-family: "need_for_speed";
-  // background-color: $background-color;
 
   .content {
     width: 100%;
@@ -85,19 +78,6 @@ body {
     flex-direction: column;
   }
 }
-
-// /* DEEPEST POSSIBLE SUPPORT */
-// @font-face {
-//   font-family: "NFS";
-//   src: url("/public/fonts/NFS-webfont.eot"); /* IE9 Compat Modes */
-//   src: url("/public/fonts/NFS-webfont.woff2") format("woff2"),
-//      url("/public/fonts/NFS-webfont.woff")
-//       format("woff"),
-//     /* Pretty Modern Browsers */ url("/public/fonts/NFS-webfont.ttf")
-//       format("truetype"),
-//     /* Safari, Android, iOS */ url("/public/fonts/NFS-webfont.svg")
-//       format("svg"); /* Legacy iOS */
-// }
 
 /* NEED FOR SPEED FONT */
 @font-face {

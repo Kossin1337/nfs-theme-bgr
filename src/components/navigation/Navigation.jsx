@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
-/* react spring */
-import { useSpring, animated } from "@react-spring/web";
+/* react-motion animations */
+import { motion } from "framer-motion";
+import { navVariants, navMobileVariants } from "../../utils/motion";
 
 /* components */
 import MobileBurger from "./components/MobileBurger";
@@ -12,14 +13,9 @@ import "./Navigation.scss";
 
 const Navigation = ({ refs }) => {
   const [menu, setMenu] = useState("mobile-inactive");
-  const [isVisible, setIsVisible] = useState(false);
   const location = useLocation();
 
-  const springProps = useSpring({
-    config: { duration: 500 },
-    from: { opacity: 0, scale: 0.5 },
-    to: { opacity: 1, scale: 1 },
-  });
+  console.log("Location: ", location);
 
   function toggleMenu() {
     menu === "mobile-active"
@@ -31,13 +27,13 @@ const Navigation = ({ refs }) => {
     console.log("location", location.hash);
     switch (location.hash) {
       case "#about":
-        scrollSmoothHandler(refs.aboutRef);
+        scrollSmoothHandler(refs?.aboutRef);
         break;
       case "#offer":
-        scrollSmoothHandler(refs.offerRef);
+        scrollSmoothHandler(refs?.offerRef);
         break;
       case "":
-        scrollSmoothHandler(refs.homeRef);
+        scrollSmoothHandler(refs?.homeRef);
         break;
 
       default:
@@ -46,18 +42,26 @@ const Navigation = ({ refs }) => {
   }, [location, refs]);
 
   const scrollSmoothHandler = (ref) => {
+    const offset = location.pathname === "/" ? 0 : 80;
+
     window.scrollTo({
-      top: ref?.current.offsetTop - 60,
+      top: ref?.current?.offsetTop + offset,
       behavior: "smooth",
     });
   };
 
   return (
-    <animated.div style={springProps} className="navigation">
+    <motion.div
+      className="navigation"
+      initial="hidden"
+      animate="visible"
+      whileInView="show"
+      variants={navVariants}
+    >
       <div className="mobile-wrapper">
         <div className="logo">
           <Link to="/">
-            <span>BGR GARAGE</span>
+            <span className="logo-text">BGR GARAGE</span>
           </Link>
         </div>
         <MobileBurger
@@ -65,35 +69,38 @@ const Navigation = ({ refs }) => {
           handleClick={toggleMenu}
         />
       </div>
-      <ul className={`menu ${menu}`}>
+      <motion.ul
+        initial="hidden"
+        animate={menu === "mobile-active" ? "visible" : ""}
+        className={`menu ${menu}`}
+        variants={navMobileVariants}
+      >
         <li className="menu-item">
           <Link to="/" activeclassname="selected">
             Home
           </Link>
         </li>
         <li className="menu-item active">
-          <Link
-            to="/#offer"
-            activeclassname="selected"
-            onClick={() => {
-              window.history.pushState("object or string", "Title", "/#offer");
-            }}
-          >
+          <Link to="/#offer" activeclassname="selected" onClick={toggleMenu}>
             Offer
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/#about" activeclassname="selected">
+          <Link to="/#about" activeclassname="selected" onClick={toggleMenu}>
             About Us
           </Link>
         </li>
         <li className="menu-item special">
-          <NavLink to="/contact" activeClassName="selected">
+          <NavLink
+            to="/contact"
+            activeClassName="selected"
+            onClick={toggleMenu}
+          >
             <ContactButton />
           </NavLink>
         </li>
-      </ul>
-    </animated.div>
+      </motion.ul>
+    </motion.div>
   );
 };
 

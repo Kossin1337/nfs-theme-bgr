@@ -4,13 +4,19 @@
   z-index: 999;
   width: 100%;
   box-sizing: border-box;
-  height: 60px;
+  height: 80px;
   padding: 0 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  background-color: rgba(5, 0, 5, 0.9);
+  background-color: rgba(5, 0, 5, 0.5);
+
+  .logo {
+    a {
+      font-size: 2rem;
+    }
+  }
 
   .mobile-inactive {
     display: none;
@@ -161,8 +167,8 @@
     align-items: center;
     border: none;
 
-    .logo {
-      font-size: 2rem;
+    .logo-text {
+      font-size: 2rem !important;
     }
 
     .burger-menu {
@@ -177,13 +183,16 @@
     .menu {
       position: absolute;
       top: 60px;
-      height: calc(75vh - 60px);
+      height: calc(100vh - 80px);
+      box-sizing: border-box;
       background-color: #000;
       width: 100%;
-      flex-direction: column;
-      justify-content: space-around;
+
+      display: grid !important;
+      grid-template-rows: repeat(4, 1fr) !important;
+
       z-index: 1001;
-      // background-color: rgba(5, 5, 5, 0.75);
+      background-color: rgba(5, 0, 5, 1);
       gap: 0;
 
       .menu-item {
@@ -229,6 +238,8 @@
 
   .mobile-active {
     display: flex;
+    height: 100%;
+    overflow: hidden;
   }
 
   .mobile-inactive {
